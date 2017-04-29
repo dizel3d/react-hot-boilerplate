@@ -14,7 +14,7 @@ module.exports = {
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
 
-    './src/index.js',
+    './src/index.tsx',
     // the entry point of our app
   ],
 
@@ -33,13 +33,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         use: [
           'babel-loader',
+          'ts-loader',
         ],
         exclude: /node_modules/,
       },
     ],
+  },
+
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
   },
 
   plugins: [
