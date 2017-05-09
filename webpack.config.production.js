@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
 
   output: {
     filename: 'static/bundle.js',
@@ -15,13 +15,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         use: [
-          'babel-loader'
+          'babel-loader',
+          'ts-loader',
         ],
         exclude: /node_modules/
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
   },
 
   plugins: [
